@@ -90,7 +90,7 @@
 			}
 
 			return this
-		},
+		}
 	});
 
 	SVG.math.Line = function Line(p1, p2){
