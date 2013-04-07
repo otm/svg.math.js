@@ -1,9 +1,9 @@
-svg.path.js
+svg.math.js
 ===========
 
 This is a plugin for the [svg.js](http://svgjs.com) library to which provides common math functions.
 
-svg.path.js is licensed under the terms of the MIT License.
+svg.math.js is licensed under the terms of the MIT License.
 
 ## Usage
 
