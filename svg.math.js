@@ -5,6 +5,10 @@
 
 	SVG.math = {
 		angle: function(p1, p2, p3){
+			if (p3){
+				return Math.abs(SVG.math.angle(p1, p3) - SVG.math.angle(p2, p3));
+			}
+
 			var angle = Math.atan2(p2.y - p1.y, p2.x - p1.x);
 
 			while (angle < 0){

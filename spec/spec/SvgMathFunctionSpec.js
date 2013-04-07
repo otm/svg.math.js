@@ -31,6 +31,9 @@ describe('SVG.math.functions', function() {
         expect(SVG.math.angle({x:20, y:20}, {x:10, y:20})).toEqual(SVG.math.rad(180));
         expect(SVG.math.angle({x:20, y:20}, {x:10, y:10})).toEqual(SVG.math.rad(225));
         expect(SVG.math.angle({x:20, y:20}, {x:20, y:10})).toEqual(SVG.math.rad(270));
+
+        expect(SVG.math.angle({x:20, y:20}, {x:30, y:20}, {x:30, y:30})).toEqual(SVG.math.rad(45));
+
     });
 
     it('SVG.math.snapToAngle', function() {
