@@ -85,15 +85,15 @@
 				delete attr.radius;
 
 				this.svg = svg;
-				this.line = svg.circle(radius).attr(options);
+				this.circle = svg.circle(radius).attr(options);
 			}
-			else if (this.line){
-				this.line.remove();
+			else if (this.circle){
+				this.circle.remove();
 				delete this.svg;
-				delete this.line;
+				delete this.circle;
 			}
 
-			return this
+			return this;
 		}
 	});
 
@@ -157,6 +157,7 @@
 			};
 
 		},
+		
 		midPoint: function(){
 			return this.interpolatedPoint(0.5);
 		},
