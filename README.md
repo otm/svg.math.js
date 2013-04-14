@@ -399,7 +399,7 @@ var arrowhead = shadowPath.perpendicularLine(shadowPath.p1, arrowheadWidth);
 
 5. The only thing left now is to draw the arrow.
 
-``javascript
+```javascript
 var draw = SVG('paper');
 draw.polygon(
 	[back.p1.x, back.p1.y],
