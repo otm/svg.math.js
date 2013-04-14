@@ -103,7 +103,7 @@ The linear interpolation is based on the formula `a + x * (b - a)`
 ## Type: SVG.math.Point
 The point object is used in the math library to store x and y coordinates. 
 
-### Constructor: SVG.math.Point(x, y)
+### constructor(x, y)
 
 #### Syntax:
 ```javascript
@@ -144,7 +144,7 @@ SVG in the first argument.
 ## Type: SVG.math.Line
 The point object is used in the math library to both represent a line segment and a line.
 
-### Constructor: SVG.math.Line(p1, p2)
+### constructor(p1, p2)
 The constructor takes to point objects which will define both a line and a line segment. 
 If a function, for instance on the form `y = mx + a` should be modeled with this object
 your should just calculate two points from that function, see third example.
