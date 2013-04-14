@@ -369,47 +369,37 @@ utilize the functions in the math library.
 
 1. Create a line object that defines the start and end of the arrow. 
 
-```javascript
-var shadowPath = new SVG.math.Line(p1, p2);
-```
+         var shadowPath = new SVG.math.Line(p1, p2);
 
 2. Now we want to find the back point of the arrow (p3 in the figure).
 the easiest way to do this is to use the move function.
 
-```javascript
-var p3 = shadowPath.move(shadowPath.p2, shadowPath.p1, distance);
-```
+         var p3 = shadowPath.move(shadowPath.p2, shadowPath.p1, distance);
 
 3. Now we will calculate the *body* of the arrow. We will do that by 
 calculate the perpedicular lines through the points `p1` and `p3`. This
 will calculate the green point on the black dashed lines.
 
-```javascript
-var back = shadowPath.perpendicularLine(shadowPath.p1, arrowThickness);
-var front = shadowPath.perpendicularLine(shadowPath.p1, arrowThickness);
-```
+         var back = shadowPath.perpendicularLine(shadowPath.p1, arrowThickness);
+         var front = shadowPath.perpendicularLine(shadowPath.p2, arrowThickness);
 
 4. Almost there, the only thing missing is the last points on the arrow
 head. That is, the green points on the red dashed line. We will calculate
 those points in a similar fashion as the last step.
 
-``javascript
-var arrowhead = shadowPath.perpendicularLine(shadowPath.p1, arrowheadWidth);
-```
+         var arrowhead = shadowPath.perpendicularLine(shadowPath.p2, arrowheadWidth);
 
 5. The only thing left now is to draw the arrow.
 
-```javascript
-var draw = SVG('paper');
-draw.polygon(
-	[back.p1.x, back.p1.y],
-	[front.p1.x, front.p1.y],
-	[arrhowhead.p1.x, arrowhead.p1.y],
-	[p2.x, p2.y],
-	[arrhowhead.p2.x, arrowhead.p2.y],
-	[front.p2.x, front.p2.y],
-	[back.p2.x, back.p2.y]
-);
-```
+         var draw = SVG('paper');
+         draw.polygon(
+                [back.p1.x, back.p1.y],
+         	[front.p1.x, front.p1.y],
+         	[arrhowhead.p1.x, arrowhead.p1.y],
+         	[p2.x, p2.y],
+         	[arrhowhead.p2.x, arrowhead.p2.y],
+         	[front.p2.x, front.p2.y],
+         	[back.p2.x, back.p2.y]
+         );
 
 ![arrow example](https://raw.github.com/otm/svg.math.js/master/images/arrowExample.png "Arrow example")
