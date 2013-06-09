@@ -14,7 +14,10 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="New document 1">
+   sodipodi:docname="angle.svg"
+   inkscape:export-filename="/home/nils/svg.math.js/images/angle.png"
+   inkscape:export-xdpi="105.76"
+   inkscape:export-ydpi="105.76">
   <defs
      id="defs4">
     <marker
@@ -80,7 +83,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.1172393"
-     inkscape:cx="276.07143"
+     inkscape:cx="323.01485"
      inkscape:cy="660.90234"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
