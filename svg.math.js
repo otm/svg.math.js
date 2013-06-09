@@ -137,7 +137,10 @@
 		},
 
 		move: function(from, towards, distance){
-			var sign = (from.x > towards.x) ? -1 : 1;
+			var sign = (from.x > towards.x) ? -1 :
+    			from.x < towards.x ? 1 : 
+    			from.y < towards.y ? -1 : 1; // The special case when from.x == towards.x
+
 			var theta = Math.atan((this.p1.y - this.p2.y) / (this.p1.x - this.p2.x));
 			var dy = distance * Math.sin(theta);
 			var dx = distance * Math.cos(theta);
