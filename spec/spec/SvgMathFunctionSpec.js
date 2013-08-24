@@ -111,33 +111,65 @@ describe('SVG.math.Line', function() {
 		expect(line.parallel(intersect)).toEqual(false);
 	});
 
-	it('SVG.math.Line.move', function(){
-		var point = line.move(line.p1, line.p2, 28.2842712475);
-		
-		expect(point.x).toBeNearTo(30, 0.00001);
-		expect(point.y).toBeNearTo(40, 0.00001);
+	describe("SVG.math.Line.move", function() {
+		it('Normal line', function(){
+			var point = line.move(line.p1, line.p2, 28.2842712475);
+			
+			expect(point.x).toBeNearTo(30, 0.00001);
+			expect(point.y).toBeNearTo(40, 0.00001);
+		});
 
-		point = new SVG.math.Line( 
-			new SVG.math.Point( 100, 100 ),
-			new SVG.math.Point( 100, 200 ) 
-		).move( 
-			new SVG.math.Point( 100, 100 ),
-			new SVG.math.Point( 100, 200 ), 
-			10
-		); 
-		expect(point.x).toBeNearTo(100, 0.00001);
-		expect(point.y).toBeNearTo(110, 0.00001);
+		it('Vertical line moving up', function(){
+			point = new SVG.math.Line( 
+				new SVG.math.Point( 100, 100 ),
+				new SVG.math.Point( 100, 200 ) 
+			).move( 
+				new SVG.math.Point( 100, 150 ),
+				new SVG.math.Point( 100, 200 ), 
+				10
+			); 
+			expect(point.x).toBeNearTo(100, 0.00001);
+			expect(point.y).toBeNearTo(160, 0.001);
+		});
 
-		point = new SVG.math.Line( 
-			new SVG.math.Point( 100, 100 ),
-			new SVG.math.Point( 100, 200 ) 
-		).move( 
-			new SVG.math.Point( 100, 200 ), 
-			new SVG.math.Point( 100, 100 ),
-			10
-		); 
-		expect(point.x).toBeNearTo(100, 0.00001);
-		expect(point.y).toBeNearTo(190, 0.00001);
+		it('Vertical line moving down', function(){
+			point = new SVG.math.Line( 
+				new SVG.math.Point( 100, 100 ),
+				new SVG.math.Point( 100, 200 ) 
+			).move( 
+				new SVG.math.Point( 100, 150 ), 
+				new SVG.math.Point( 100, 100 ),
+				10
+			); 
+			expect(point.x).toBeNearTo(100, 0.00001);
+			expect(point.y).toBeNearTo(140, 0.001);
+		});
+
+		it('Inverse vertical line moving up', function(){
+			point = new SVG.math.Line(
+				new SVG.math.Point( 100, 200 ),
+				new SVG.math.Point( 100, 100 )
+			).move( 
+				new SVG.math.Point( 100, 150 ), 
+				new SVG.math.Point( 100, 200 ),
+				10
+			); 
+			expect(point.x).toBeNearTo(100, 0.00001);
+			expect(point.y).toBeNearTo(160, 0.001);
+		});
+
+		it('Inverse vertical line moving down', function(){
+			point = new SVG.math.Line(
+				new SVG.math.Point( 100, 200 ),
+				new SVG.math.Point( 100, 100 )
+			).move( 
+				new SVG.math.Point( 100, 150 ), 
+				new SVG.math.Point( 100, 100 ),
+				10
+			); 
+			expect(point.x).toBeNearTo(100, 0.00001);
+			expect(point.y).toBeNearTo(140, 0.001);
+		});
 
 	});
 
