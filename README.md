@@ -239,7 +239,7 @@ See figure for more information.
 
 #### Syntax:
 ```javascript
-	line.movr(from, towards, distance);
+	line.move(from, towards, distance);
 ```
 
 #### Arguments:
