@@ -50,10 +50,30 @@ describe('SVG.math.functions', function() {
 });
 
 describe('SVG.math.Point', function() {
-	it('It should create a point object containing x and y coordinates', function(){
+	it('knows its x and y coordinates', function(){
 		var point = new SVG.math.Point(10,20);
  		expect(point.x).toEqual(10);
  		expect(point.y).toEqual(20);
+	});
+
+	it('draws itself on an SVG paper with default attributes', function(){
+		var point = new SVG.math.Point(10,20);
+		var svgpaper = SVG('svg');
+		point.draw(svgpaper);
+	});
+	it('draws itself on an SVG paper with custom attributes', function(){
+		var point = new SVG.math.Point(50,60);
+		var svgpaper = SVG('svg');
+		point.draw(svgpaper, {radius:10,fill:'blue'});
+		expect(point.circle.attr('cx')).toEqual(50);
+		expect(point.circle.attr('cy')).toEqual(60);
+		expect(point.circle.attr('radius')).toEqual(10);
+	});
+	it('removes itself from the SVG paper', function(){
+		var point = new SVG.math.Point(30,40);
+		var svgpaper = SVG('svg');
+		point.draw(svgpaper);
+		point.draw();
 	});
 });
 

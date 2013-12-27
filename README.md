@@ -133,7 +133,7 @@ SVG in the first argument.
 ```
 
 #### Arguments:
-1. svg - (*numeric*) The SVG to draw on. If null it will remove the itself from SVG.
+1. svg - (*object*) The SVG to draw on. If null, the point will remove itself from the SVG.
 2. options - (*object*, optional) Options for the circle, takes same attributes as a normal circle.
 
 #### Returns:

@@ -78,14 +78,16 @@
 	};
 
 	SVG.extend(SVG.math.Point, {
-		draw: function(svg, options){
+		/**
+		 * With no arguments - remove the currently drawn circle.
+		 * With a single parameter - draw a circle with default attributes.
+		 * With two parameters - draw a circle with the given attributes.  
+		 */
+		draw: function(svg, attr) {
 			if (svg){
 				attr = attr || SVG.math.Point.attr;
-				var radius = attr.radus || 5;
-				delete attr.radius;
-
 				this.svg = svg;
-				this.circle = svg.circle(radius).attr(options);
+				this.circle = svg.circle(attr.radius).attr('cx',this.x).attr('cy',this.y).attr(attr);
 			}
 			else if (this.circle){
 				this.circle.remove();
