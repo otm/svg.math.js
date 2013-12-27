@@ -69,6 +69,12 @@ describe('SVG.math.Point', function() {
 		expect(point.circle.attr('cy')).toEqual(60);
 		expect(point.circle.attr('radius')).toEqual(10);
 	});
+	it('removes itself from the SVG paper', function(){
+		var point = new SVG.math.Point(30,40);
+		var svgpaper = SVG('svg');
+		point.draw(svgpaper);
+		point.draw();
+	});
 });
 
 describe('SVG.math.Line', function() {
