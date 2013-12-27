@@ -127,15 +127,13 @@ The point object is used in the math library to store x and y coordinates.
 The draw function is a utility function mainly for debugging. It will draw a circle on the
 SVG in the first argument. 
 
-With no arguments, draw() removes the currently drawn circle.
-
 #### Syntax:
 ```javascript
 	var point = new SVG.math.Point(x, y).draw(svg);
 ```
 
 #### Arguments:
-1. svg - (*numeric*) The SVG to draw on. If null it will remove the itself from SVG.
+1. svg - (*object*) The SVG to draw on. If null, the point will remove itself from the SVG.
 2. options - (*object*, optional) Options for the circle, takes same attributes as a normal circle.
 
 #### Returns:
