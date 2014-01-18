@@ -78,14 +78,18 @@
 	};
 
 	SVG.extend(SVG.math.Point, {
-		draw: function(svg, options){
+		/** draw(svg, attr)
+         * svg - the SVG to add (draw) the point on
+         * attr - custom attributes for the circle
+         *
+         * To remove the point form the SVG set the svg to null by calling 
+         * draw function without any arguments
+         */
+		draw: function(svg, attr){
 			if (svg){
 				attr = attr || SVG.math.Point.attr;
-				var radius = attr.radus || 5;
-				delete attr.radius;
-
 				this.svg = svg;
-				this.circle = svg.circle(radius).attr(options);
+				this.circle = svg.circle(attr.radius).attr('cx',this.x).attr('cy',this.y).attr(attr);
 			}
 			else if (this.circle){
 				this.circle.remove();
@@ -110,13 +114,13 @@
 		update: function(p1, p2){               
 			this.p1 = p1;
 			this.p2 = p2;		
-        
-            this.a = this.p2.y - this.p1.y;
-            this.b = this.p1.x - this.p2.x;
+		
+			this.a = this.p2.y - this.p1.y;
+			this.b = this.p1.x - this.p2.x;
 
-            this.c = p1.x * p2.y - p2.x * p1.y; 
+			this.c = p1.x * p2.y - p2.x * p1.y; 
 
-            return this;
+			return this;
 		},
 		draw: function(svg, options){
 			if (svg){
@@ -138,8 +142,8 @@
 
 		move: function(from, towards, distance){
 			var sign = (from.x > towards.x) ? -1 :
-    			from.x < towards.x ? 1 : 
-    			from.y > towards.y ? -1 : 1; // The special case when from.x == towards.x
+				from.x < towards.x ? 1 : 
+				from.y > towards.y ? -1 : 1; // The special case when from.x == towards.x
 
 			var theta = Math.atan(Math.abs(this.p1.y - this.p2.y) / Math.abs(this.p1.x - this.p2.x));
 			var dy = distance * Math.sin(theta);
@@ -187,9 +191,9 @@
 		},
 
 		closestPoint: function(p) {
-  			return this.interpolatedPoint(
-      			this.closestLinearInterpolation(p)
-      		);
+			return this.interpolatedPoint(
+				this.closestLinearInterpolation(p)
+			);
 		},
 
 		perpendicularLine: function(p, distance){
