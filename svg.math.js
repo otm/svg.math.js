@@ -124,9 +124,9 @@
 		},
 		draw: function(svg, options){
 			if (svg){
-				attr = attr || SVG.math.Line.attr;
+				attr = options || SVG.math.Line.attr;
 				this.svg = svg;
-				this.line = svg.line(p1.x, p1.y, p2.x, p2.y).attr(options);
+				this.line = svg.line(this.p1.x, this.p1.y, this.p2.x, this.p2.y).attr(options);
 			}
 			else if (this.line){
 				this.line.remove();
