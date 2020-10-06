@@ -10,7 +10,7 @@ Include this plugin after including svg.js in your html document.
 
 ## Introduction
 The math library is a utility library to aid common geometric calculations when 
-dealing with SVG:s. The Library is splitted into seperate functions and a point and 
+dealing with SVG:s. The Library is splitted into separate functions and a point and 
 line object. All angles in the library is using radians. 
 
 ## Object: SVG.math
